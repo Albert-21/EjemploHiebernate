@@ -140,7 +140,6 @@ public class PersonaGUI extends javax.swing.JInternalFrame {
         cmpTelefono.setText("");
     }
     private void btoNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btoNuevoActionPerformed
-        // TODO add your handling code here:
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         p.setClave(cmpClave.getText().trim());
@@ -148,12 +147,10 @@ public class PersonaGUI extends javax.swing.JInternalFrame {
         p.setDireccion(cmpDireccion.getText().trim());
         p.setTelefono(cmpTelefono.getText().trim());
         
-        
         session.save(p);
         transaction.commit();
-   
+        JOptionPane.showMessageDialog(null,"Registrado");
         session.close();
-        
         limpiar();
     }//GEN-LAST:event_btoNuevoActionPerformed
 
